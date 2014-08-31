@@ -1,15 +1,19 @@
 #include <pololu/3pi.h>
+
 #include <avr/pgmspace.h>
 
 const char welcome[] PROGMEM = ">g32>>c32";
 const char go[] PROGMEM = "L16 cdegreg4";
 
+const char welcome_line1[] PROGMEM = "BETRAYAL";
+const char welcome_line2[] PROGMEM = "   BOT  ";
+
 void initialize() {
 	pololu_3pi_init(2000);
 
-	print_from_program_space("BETRAYAL");
-	lcd_goto_xy(0,1);
-	print_from_program_space("BOT");
+	print_from_program_space(welcome_line1);
+	lcd_goto_xy(0, 1);
+	print_from_program_space(welcome_line2);
 	play_from_program_space(welcome);
 	delay_ms(1000);
 
